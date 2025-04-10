@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English to German Translator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            min-height: 100px;
+            box-sizing: border-box;
+        }
+        
+        .result {
+            background-color: #f9f9f9;
+            border-left: 3px solid #3498db;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        
+        .language-indicator {
+            display: inline-block;
+            background-color: #eee;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>English to German Translator</h1>
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="text">
+                    English Text
+                    <span class="language-indicator">EN</span>
+                </label>
+                <textarea id="text" name="text" placeholder="Enter text to translate..." required>{{ original or '' }}</textarea>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit">Translate</button>
+            </div>
+            
+            {% if translation %}
+            <div class="form-group">
+                <label for="translation">
+                    German Translation
+                    <span class="language-indicator">DE</span>
+                </label>
+                <div class="result" id="translation">{{ translation }}</div>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+    
+    <div class="footer">
+        <p>Powered by Hugging Face Transformers &amp; Flask</p>
+    </div>
+</body>
+</html>
